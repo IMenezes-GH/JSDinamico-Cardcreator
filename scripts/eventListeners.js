@@ -15,7 +15,6 @@ formEmail.addEventListener("focus", (ev) => profileEmail.innerText = ev.target.v
 formPassword.addEventListener("input", (ev) => {
     const outputLabel = formPassword.parentElement.children[1]
     outputLabel.innerText = validarSenha();
-    console.log(validarSenha());
     
     if (formPassword.value !== formPassword2.value){
         formPassword.parentElement.children[3].innerText = 'Senhas não são iguais'
@@ -43,7 +42,6 @@ formIMG.addEventListener("input", (ev) => {
 
     fileReader.onloadend = () => {
         profileIMG.style.backgroundImage = `url("${fileReader.result}")`;
-        console.log('test')
     }
 
     if (file) {
