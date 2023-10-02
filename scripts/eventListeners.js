@@ -70,9 +70,9 @@ cancelarFormBtn.addEventListener("click", (ev) => {
 confimarFormBtn.addEventListener("click", (ev) => {
     if (validarForm()){
         successModal.showModal();
-        confimarFormBtn.close();
+        confirmFormModal.close();
     } else {
         failModal.showModal();
-        confimarFormBtn.close();
+        confirmFormModal.close();
     }
 })
