@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script defer src="./scripts/form.js"></script>
+    <script defer src="./scripts/util.js"></script>
+    <script defer src="./scripts/eventListeners.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="wrapper">
+
+            <section>
+                <h1>Crie seu perfil</h1>
+            </section>
+            <form action="" onsubmit="btnEvent(event)" onreset="btnReset(event)">
+                <h2>Cadastre-se</h1>
+                    <hr>
+                    <label for="nome">
+                        Nome Completo:*
+                        <input required type="text" id="nome" name="nm_name" minlength="1" maxlength="50">
+                        <p class="invalido"></p>
+                    </label>
+                    <label for="email">
+                        Email:*
+                        <input required type="email" id="email" name="nm_email" placeholder="exemplo@email.com"
+                            minlength="1" maxlength="50">
+                        <p class="invalido"></p>
+                    </label>
+                    <label for="password">
+                        Senha:*
+                        <input required type="password" id="password" name="pwd" placeholder="Digite sua senha (min: 8, max:20, letras maiúsculas, minúsculas e números)"
+                            minlength="8" maxlength="25">
+                        <p class="invalido"></p>
+                        <input required type="password" id="password2" name="nm_pwd2"
+                            placeholder="Digite sua senha novamente" minlength="8" maxlength="25">
+                        <p class="invalido"></p>
+                    </label>
+                    <label for="state">Seu estado:</label>
+                    <select required name="nm_select" id="state">
+                        <option disabled selected>Seu estado</option>
+                        <optgroup label="Sudeste">
+                            <option value="ES">ES</option>
+                            <option value="MG">MG</option>
+                            <option value="RJ">RJ</option>
+                            <option value="SP">SP</option>
+                        </optgroup>
+                        <optgroup label="Nordeste">
+                            <option value="AL">AL</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="MA">MA</option>
+                            <option value="PB">PB</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RN">RN</option>
+                            <option value="SE">SE</option>
+                        </optgroup>
+                        <optgroup label="Norte">
+                            <option value="AM">AM</option>
+                            <option value="AC">AC</option>
+                            <option value="AP">AP</option>
+                            <option value="PA">PA</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="TO">TO</option>
+                        </optgroup>
+                        <optgroup label="Centro-oeste">
+                            <option value="DF">DF</option>
+                            <option value="GO">GO</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                        </optgroup>
+                        <optgroup value="Sul">
+                            <option value="PR">PR</option>
+                            <option value="RS">RS</option>
+                            <option value="SC">SC</option>
+                        </optgroup>
+                    </select>
+
+                    <label for="description">
+                        Descrição:
+                        <textarea name="nm_description" id="description" cols="30" rows="3"></textarea>
+                    </label>
+                    <fieldset>
+                        <legend>Foto do perfil:</legend>
+                        <div>
+                            <label class="font-light" for="img">
+                                Escolha uma foto de perfil:
+                                <input type="file" accept="image/*" id="img">
+                            </label>
+                        </div>
+                        <div>
+                            <legend class="font-light">Escolha um formato:</legend>
+                            <label for="circle">
+                                <input checked type="radio" name="shape" value="100" id="circle">
+                                Círculo
+                            </label>
+                            <label for="square">
+                                <input type="radio" name="shape" value="0" id="square">
+                                Quadrado
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="button-wrapper">
+                        <button type="reset" class="reset-button">Reset</button>
+                        <button type="submit" id="submit-btn">Cadastrar</button>
+                    </div>
+            </form>
+        </div>
+
+        
+        <!-- PERFIL ======================================== -->
+        <section class="profile-preview">
+            <div class="wrapper">
+                <article>
+                    <section id="section-img" role="img">
+                        <div id="profile-img" role="img">
+                            
+                        </div>
+                    </section>
+                    <section id="section-profile">
+                        <div class="profile-contact">
+                            <span>
+                                <h1 id="profile-name">Nome completo</h1>
+                                <p id="profile-state" class="font-light">ZZ - Brazil</p>
+                            </span>
+                            <h3 id="profile-email" class="font-light">email@exemplo.com</h3>
+                        </div>
+                        <hr>
+                    </section>
+                    <section id="section-description">
+                        <p id="profile-description">Descrição aqui</p>
+                    </section>
+                </section>
+        </article>
+    </div>
+</section>
+</main>
+<dialog id="confirm-form" class="hide-modal">
+    <form action="">
+        
+        <h1>Confirmar inscrição?</h1>
+        <div>
+            <button formmethod="dialog">Cancelar</button>
+            <button formmethod="dialog">Confirmar</button>
+        </div>
+    </form>
+    </dialog>
+</body>
+
+</html>
