@@ -60,10 +60,21 @@ formShapes.forEach((el) => {
 })
 
 submitBtn.addEventListener("click", (ev) => {
+    ev.preventDefault();
     confirmFormModal.showModal();
-    // confirmFormModal.classList.toggle("show-modal");
 })
 
-confirmFormModal.addEventListener("close", (ev) => {
-    console.log("close modal")
+cancelarFormBtn.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    confirmFormModal.close();
+})
+
+confimarFormBtn.addEventListener("click", (ev) => {
+    if (validarForm()){
+        successModal.showModal();
+        confimarFormBtn.close();
+    } else {
+        failModal.showModal();
+        confimarFormBtn.close();
+    }
 })

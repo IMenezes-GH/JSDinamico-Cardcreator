@@ -28,7 +28,11 @@ const submitBtn = document.getElementById("submit-btn");
 
 // MODAL
 const confirmFormModal = document.getElementById("confirm-form");
+const successModal = document.getElementById("success-modal");
+const failModal = document.getElementById("fail-modal");
 
+const cancelarFormBtn = document.getElementById("cancelar-form-btn");
+const confimarFormBtn = document.getElementById("confirmar-form-btn");
 
 
 // Reseta todos os dados

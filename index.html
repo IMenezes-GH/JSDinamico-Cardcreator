@@ -34,7 +34,8 @@
                     </label>
                     <label for="password">
                         Senha:*
-                        <input required type="password" id="password" name="pwd" placeholder="Digite sua senha (min: 8, max:20, letras maiúsculas, minúsculas e números)"
+                        <input required type="password" id="password" name="pwd"
+                            placeholder="Digite sua senha (min: 8, max:20, letras maiúsculas, minúsculas e números)"
                             minlength="8" maxlength="25">
                         <p class="invalido"></p>
                         <input required type="password" id="password2" name="nm_pwd2"
@@ -115,14 +116,14 @@
             </form>
         </div>
 
-        
+
         <!-- PERFIL ======================================== -->
         <section class="profile-preview">
             <div class="wrapper">
                 <article>
                     <section id="section-img" role="img">
                         <div id="profile-img" role="img">
-                            
+
                         </div>
                     </section>
                     <section id="section-profile">
@@ -138,20 +139,38 @@
                     <section id="section-description">
                         <p id="profile-description">Descrição aqui</p>
                     </section>
-                </section>
+        </section>
         </article>
-    </div>
-</section>
-</main>
-<dialog id="confirm-form" class="hide-modal">
-    <form action="">
-        
-        <h1>Confirmar inscrição?</h1>
-        <div>
-            <button formmethod="dialog">Cancelar</button>
-            <button formmethod="dialog">Confirmar</button>
         </div>
-    </form>
+        </section>
+    </main>
+    <dialog id="confirm-form">
+        <form action="">
+
+            <h1>Confirmar inscrição?</h1>
+            <div>
+                <button id="cancelar-form-btn">Cancelar</button>
+                <button id="confirmar-form-btn" formmethod="dialog">Confirmar</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog id="success-modal">
+        <form action="">
+
+            <h1>Usuário cadastrado com sucesso!</h1>
+            <div>
+                <button onclick="this.close()">Ok</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog id="fail-modal">
+        <form action="">
+
+            <p>Erro ao cadastrar. Certifique-se que todos os dados foram preenchidos corretamente.</p>
+            <div>
+                <button onclick="this.close()">Ok</button>
+            </div>
+        </form>
     </dialog>
 </body>
 

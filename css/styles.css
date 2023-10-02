@@ -18,6 +18,7 @@ body {
     background-color: var(--primary-bg-color);
     color: var(--primary-txt-color);
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .invalido {
@@ -215,6 +216,10 @@ main {
             border-top-right-radius: 0;
             display: flex;
             flex-direction: column;
+   
+            max-height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
 
             &>#section-img {
                 background-color: rgb(28, 30, 116);
@@ -276,6 +281,7 @@ main {
 
             & section#section-description {
                 padding: 2rem;
+                word-break: break-all;
             }
         }
 
@@ -283,7 +289,7 @@ main {
     }
 }
 
-#confirm-form {
+dialog {
     position: absolute;
     background-color: rgb(248, 248, 250);
     border: 1px solid var(--accent-txt-color);
