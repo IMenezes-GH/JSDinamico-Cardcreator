@@ -1,3 +1,5 @@
+const form = document.getElementById("register");
+
 // NOME
 const formName = document.getElementById("nome");
 const profileName = document.getElementById("profile-name");

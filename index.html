@@ -21,7 +21,7 @@
             <section>
                 <h1>Crie seu perfil</h1>
             </section>
-            <form action="" onsubmit=submitForm(this) onreset="btnReset(event)">
+            <form id="register" action="/index.html" method="get" onsubmit="submitForm(this)" onreset="btnReset(event)">
                 <h2>Cadastre-se</h1>
                     <hr>
                     <label for="nome">
@@ -116,7 +116,7 @@
 
                     <div class="button-wrapper">
                         <button type="reset" class="reset-button">Reset</button>
-                        <button type="submit" id="submit-button">Cadastrar</button>
+                        <button type="button" id="submit-button" onclick="submitForm()">Cadastrar</button>
                     </div>
             </form>
         </div>
@@ -156,7 +156,7 @@
             <p>você tem certeza que deseja confirmar a sua inscrição?</p>
             <div>
                 <button id="cancelar-form-btn">Cancelar</button>
-                <button id="confirmar-form-btn" formmethod="dialog">Confirmar</button>
+                <button id="confirmar-form-btn" form="register">Confirmar</button>
             </div>
         </form>
     </dialog>
@@ -165,7 +165,7 @@
 
             <h1 class="font-light">Usuário cadastrado com sucesso!</h1 class="font-light">
             <div>
-                <button>Ok</button>
+                <button >Ok</button>
             </div>
         </form>
     </dialog>

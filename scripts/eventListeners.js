@@ -97,12 +97,24 @@ cancelarFormBtn.addEventListener("click", (ev) => {
     confirmFormModal.close();
 })
 
+
 confimarFormBtn.addEventListener("click", (ev) => {
+    ev.preventDefault();
     if (validarForm()){
-        successModal.showModal();
         confirmFormModal.close();
+        confirmFormModal.value = true;
     } else {
-        failModal.showModal();
         confirmFormModal.close();
+        confirmFormModal.value = false;
     }
+})
+
+confirmFormModal.addEventListener('close', (ev) => {
+    
+    if (confirmFormModal.value) {
+        successModal.showModal()
+        const submitEvent = new SubmitEvent("submit", {submitter: this})
+        form.dispatchEvent(submitEvent)
+
+    };
 })
