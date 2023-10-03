@@ -5,3 +5,11 @@ O objetivo da aula é:
 
 - Criar um formulário com pelo menos 5 inputs.
 - Implementar validação dos dados desses inputs.
+
+## Exemplos
+
+Formulário vazio
+<img src="./assets/clean.png">
+------------------------------
+Formulário preenchido
+<img src="./assets/filled.png">
