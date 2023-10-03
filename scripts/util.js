@@ -32,12 +32,21 @@ function validarEmail(){
     else return true;
 }
 
+function validarEstado(){
+    if (formState.value === '') {
+        formState.focus();
+        throw new Error('Escolha um estado.')
+    }
+    return true;
+}
+
 function validarForm(){
 
     try {
         validarNome();
         validarEmail();
         validarSenha();
+        validarEstado();
         compararSenhas();
         return true;
     }

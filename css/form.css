@@ -91,9 +91,16 @@ main form {
         }
     }
 
+    & option, select{
+        font-weight: 500;
+    }
+
     & .reset-button {
         background-color: white;
         color: rgb(143, 143, 143);
         border: 1px solid rgba(128, 128, 128, 0.555);
+        &:hover{
+            outline: 1px solid blue;
+        }
     }
 }

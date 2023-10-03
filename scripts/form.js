@@ -24,7 +24,7 @@ const profileIMG = document.getElementById("profile-img");
 
 const formShapes = document.getElementsByName("shape");
 
-const submitBtn = document.getElementById("submit-btn");
+const submitBtn = document.getElementById("submit-button");
 
 // MODAL
 const confirmFormModal = document.getElementById("confirm-form-modal");
@@ -41,4 +41,13 @@ function btnReset() {
     profileEmail.innerText = "email@examplo.com";
     profileState.innerText = "Brazil";
     profileDescription.innerText = "Descrição aqui"
+}
+
+function submitForm(element){
+
+    this.event.preventDefault();
+
+    if (validarForm()) {
+        confirmFormModal.showModal();
+    }
 }

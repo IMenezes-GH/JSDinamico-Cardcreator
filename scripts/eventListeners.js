@@ -56,7 +56,18 @@ formPassword2.addEventListener("input", (ev) => {
     }
 })
 
-formState.addEventListener("input", (ev) => profileState.innerText = `${ev.target.value} - Brazil`);
+formState.addEventListener("input", (ev) => {
+    const outputLabel = formState.parentElement.children[1];
+    try {
+        validarEstado();
+        outputLabel.innerText = '';
+        formState.classList.remove('invalid');
+    } catch (err){
+        outputLabel.innerText = err.message;
+        formState.classList.add('invalid');
+    }
+    profileState.innerText = `${ev.target.value} - Brazil`
+});
 formDescription.addEventListener("input", (ev) => profileDescription.innerText = ev.target.value);
 
 formIMG.addEventListener("input", (ev) => {
@@ -79,15 +90,6 @@ formShapes.forEach((el) => {
 
         profileIMG.style.borderRadius = `${el.value}%`;
     })
-})
-
-submitBtn.addEventListener("click", (ev) => {
-    // Needed so the browser's default form validation is not prevented, but still don't submit form
-    if (validarForm()) {
-        ev.preventDefault();
-        confirmFormModal.classList.remove('hide-modal');
-        confirmFormModal.showModal();
-    }
 })
 
 cancelarFormBtn.addEventListener("click", (ev) => {
