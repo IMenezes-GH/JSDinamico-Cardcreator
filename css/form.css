@@ -1,0 +1,99 @@
+.wrapper {
+
+    background: linear-gradient(rgb(5, 10, 43), rgba(0, 0, 0, 0));
+    border-radius: 0.2rem;
+    padding: 0 2rem 2rem;
+    max-width: 60vw;
+}
+
+form {
+    max-height: 100vh;
+    width: 60%;
+    margin: 0 6rem;
+    padding: 2.5rem 5.5rem;
+    background: radial-gradient(rgb(255, 255, 255), #ffffff);
+    box-shadow: -3px 4px 9px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+
+    & h2 {
+        text-align: left;
+        color: var(--accent-txt-color);
+    }
+
+    & label,
+    legend {
+        color: #061c5f;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    & input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        /* appearance: none; */
+        border: 2px solid var(--accent-txt-color);
+        padding: 0.55rem;
+    }
+
+    & input[type="color"] {
+        appearance: none;
+        border: none;
+        padding: 0;
+        align-self: center;
+        width: 100%;
+    }
+
+    & select {
+        border: 1px solid black;
+        padding: 0.2rem 0.5rem;
+        /* border-radius: .55rem; */
+
+        background-color: rgb(253, 251, 251);
+        color: var(--accent-txt-color);
+
+        font-weight: 600;
+
+        width: fit-content;
+    }
+
+    & fieldset {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &>* {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        &>div:nth-of-type(2) {
+            flex-direction: column;
+            align-items: start;
+
+            &>label {
+                flex-direction: row;
+            }
+        }
+    }
+
+    &>div.button-wrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+
+        & button {
+            flex-grow: 1;
+        }
+    }
+
+    & .reset-button {
+        background-color: white;
+        color: rgb(143, 143, 143);
+        border: 1px solid rgba(128, 128, 128, 0.555);
+    }
+}

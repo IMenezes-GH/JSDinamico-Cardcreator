@@ -15,24 +15,44 @@ formName.addEventListener("input", (ev) => {
 
 formEmail.addEventListener("input", (ev) => {
     const outputLabel = formEmail.parentElement.children[1]
-    outputLabel.innerText = validarEmail();
+
+    try {
+        validarEmail();
+        outputLabel.innerText = '';
+        formEmail.classList.remove('invalid');
+    } catch (err){
+        outputLabel.innerText = err.message
+        formEmail.classList.add('invalid');
+    }
+
     profileEmail.innerText = ev.target.value;
 });
 
 formPassword.addEventListener("input", (ev) => {
     const outputLabel = formPassword.parentElement.children[1]
-    outputLabel.innerText = validarSenha();
-    
-    if (formPassword.value !== formPassword2.value){
-        formPassword.parentElement.children[3].innerText = 'Senhas não são iguais'
-    }
-})
 
+    try {
+        validarSenha();
+        outputLabel.innerText = "";
+        formPassword.classList.remove('invalid');
+    }
+    catch (err) {
+        outputLabel.innerText = err.message;
+        formPassword.classList.add('invalid');
+    }
+
+})
 formPassword2.addEventListener("input", (ev) => {
-    if (formPassword.value !== formPassword2.value){
-        formPassword.parentElement.children[3].innerText = 'Senhas não são iguais'
-    } else {
-        formPassword.parentElement.children[3].innerText = ''
+    const outputLabel = formPassword2.parentElement.children[3];
+
+    try {
+        compararSenhas();
+        outputLabel.innerText = ''
+        formPassword2.classList.remove('invalid');
+    } catch (err){
+
+        outputLabel.innerText = err.message;
+        formPassword2.classList.add('invalid');
     }
 })
 

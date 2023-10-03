@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/modals.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/preview.css">
     <script defer src="./scripts/form.js"></script>
     <script defer src="./scripts/util.js"></script>
     <script defer src="./scripts/eventListeners.js"></script>
@@ -148,6 +151,7 @@
         <form action="">
 
             <h1>Confirmar inscrição?</h1>
+            <p>você tem certeza que deseja confirmar a sua inscrição?</p>
             <div>
                 <button id="cancelar-form-btn">Cancelar</button>
                 <button id="confirmar-form-btn" formmethod="dialog">Confirmar</button>
@@ -157,7 +161,7 @@
     <dialog id="success-modal">
         <form action="">
 
-            <h1>Usuário cadastrado com sucesso!</h1>
+            <h1 class="font-light">Usuário cadastrado com sucesso!</h1 class="font-light">
             <div>
                 <button>Ok</button>
             </div>

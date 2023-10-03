@@ -10,8 +10,17 @@ function validarNome(){
 
 function validarSenha(){
     const passwordRegexp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$$/
-    if (!formPassword.value.match(passwordRegexp)) throw new Error('Senha inválida')
+    const password = formPassword.value;
+    if (!password.match(passwordRegexp)) throw new Error('Senha inválida')
     else return true
+}
+
+function compararSenhas(){
+    const password_1 = formPassword.value;
+    const password_2 = formPassword2.value;
+
+    if (password_1 !== password_2) throw new Error('Senhas não são iguais')
+    return true;
 }
 
 function validarEmail(){
@@ -29,6 +38,7 @@ function validarForm(){
         validarNome();
         validarEmail();
         validarSenha();
+        compararSenhas();
         return true;
     }
     catch (err){
