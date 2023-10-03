@@ -4,9 +4,10 @@
     border-radius: 0.2rem;
     padding: 0 2rem 2rem;
     max-width: 60vw;
+    overflow-y: scroll;
 }
 
-main form {
+main > * form {
     max-height: 100vh;
     width: 60%;
     margin: 0 6rem;
@@ -15,7 +16,8 @@ main form {
     box-shadow: -3px 4px 9px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    gap: .75rem;
+    gap: .55rem;
+
 
     & h2 {
         text-align: left;
@@ -92,7 +94,7 @@ main form {
     }
 
     & option, select{
-        font-weight: 500;
+        font-weight: 400;
     }
 
     & .reset-button {
