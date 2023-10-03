@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/modals.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/preview.css">
     <script defer src="./scripts/form.js"></script>
     <script defer src="./scripts/util.js"></script>
     <script defer src="./scripts/eventListeners.js"></script>
@@ -18,33 +21,34 @@
             <section>
                 <h1>Crie seu perfil</h1>
             </section>
-            <form action="" onsubmit="btnEvent(event)" onreset="btnReset(event)">
+            <form id="register" action="/index.html" method="get" onsubmit="submitForm(this)" onreset="btnReset(event)">
                 <h2>Cadastre-se</h1>
                     <hr>
                     <label for="nome">
                         Nome Completo:*
                         <input required type="text" id="nome" name="nm_name" minlength="1" maxlength="50">
-                        <p class="invalido"></p>
+                        <p class="invalid"></p>
                     </label>
                     <label for="email">
                         Email:*
                         <input required type="email" id="email" name="nm_email" placeholder="exemplo@email.com"
                             minlength="1" maxlength="50">
-                        <p class="invalido"></p>
+                        <p class="invalid"></p>
                     </label>
                     <label for="password">
                         Senha:*
                         <input required type="password" id="password" name="pwd"
                             placeholder="Digite sua senha (min: 8, max:20, letras maiúsculas, minúsculas e números)"
                             minlength="8" maxlength="25">
-                        <p class="invalido"></p>
+                        <p class="invalid"></p>
                         <input required type="password" id="password2" name="nm_pwd2"
                             placeholder="Digite sua senha novamente" minlength="8" maxlength="25">
-                        <p class="invalido"></p>
+                        <p class="invalid"></p>
                     </label>
-                    <label for="state">Seu estado:</label>
-                    <select required name="nm_select" id="state">
-                        <option disabled selected>Seu estado</option>
+                    <label for="state">Seu estado:*
+
+                        <select required name="nm_select" id="state">
+                            <option value="">Seu estado</option>
                         <optgroup label="Sudeste">
                             <option value="ES">ES</option>
                             <option value="MG">MG</option>
@@ -83,7 +87,8 @@
                             <option value="SC">SC</option>
                         </optgroup>
                     </select>
-
+                    <p class="invalid"></p>
+                    </label>
                     <label for="description">
                         Descrição:
                         <textarea name="nm_description" id="description" cols="30" rows="3"></textarea>
@@ -111,7 +116,7 @@
 
                     <div class="button-wrapper">
                         <button type="reset" class="reset-button">Reset</button>
-                        <button type="submit" id="submit-btn">Cadastrar</button>
+                        <button type="button" id="submit-button" onclick="submitForm()">Cadastrar</button>
                     </div>
             </form>
         </div>
@@ -144,22 +149,23 @@
         </div>
         </section>
     </main>
-    <dialog id="confirm-form">
+    <dialog id="confirm-form-modal">
         <form action="">
 
             <h1>Confirmar inscrição?</h1>
+            <p>você tem certeza que deseja confirmar a sua inscrição?</p>
             <div>
                 <button id="cancelar-form-btn">Cancelar</button>
-                <button id="confirmar-form-btn" formmethod="dialog">Confirmar</button>
+                <button id="confirmar-form-btn" form="register">Confirmar</button>
             </div>
         </form>
     </dialog>
     <dialog id="success-modal">
         <form action="">
 
-            <h1>Usuário cadastrado com sucesso!</h1>
+            <h1 class="font-light">Usuário cadastrado com sucesso!</h1 class="font-light">
             <div>
-                <button>Ok</button>
+                <button >Ok</button>
             </div>
         </form>
     </dialog>

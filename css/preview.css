@@ -1,0 +1,85 @@
+
+.profile-preview {
+
+    & .wrapper {
+
+        & article {
+
+            background-color: white;
+            border-radius: 1rem;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            display: flex;
+            flex-direction: column;
+   
+            max-height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+
+            &>#section-img {
+                background-color: rgb(28, 30, 116);
+                min-height: 10vh;
+
+                &>div#profile-img {
+                    cursor: pointer;
+
+                    background-color: #e2ecf3;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+
+                    border: 1px inset var(--accent-txt-color);
+                    height: 10rem;
+                    width: 10rem;
+                    margin-left: 65%;
+                    top: 5rem;
+                    position: relative;
+
+                    z-index: 2;
+
+                    border-radius: 100%;
+
+                }
+            }
+
+            & section#section-profile {
+
+                background-color: #1477B8;
+
+                padding: 2rem;
+                text-align: justify;
+                z-index: 1;
+
+                & span {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    & h1#profile-name {
+                        color: white;
+                        text-align: left;
+                        margin-bottom: 0;
+                        padding: 0;
+                    }
+                }
+
+                & p,
+                #profile-email {
+                    color: white;
+                    font-weight: 300;
+                }
+
+                & hr {
+                    margin-top: 1rem;
+                    border-color: rgba(33, 21, 143, 0.397);
+                }
+            }
+
+            & section#section-description {
+                padding: 2rem;
+                word-break: break-all;
+            }
+        }
+
+
+    }
+}

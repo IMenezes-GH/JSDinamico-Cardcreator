@@ -1,39 +1,74 @@
 formName.addEventListener("input", (ev) => {
     const outputLabel = formName.parentElement.children[1]
-    outputLabel.innerText = validarNome();
+    try {
+        validarNome();
+        formName.classList.remove('invalid');
+        outputLabel.innerText = '';
+    }
+    catch (err){
+        outputLabel.innerText = err.message;
+        formName.classList.add('invalid');
+    }
+
     profileName.innerText = ev.target.value
 });
-formName.addEventListener("focus", (ev) => profileName.innerText = ev.target.value);
 
 formEmail.addEventListener("input", (ev) => {
     const outputLabel = formEmail.parentElement.children[1]
-    outputLabel.innerText = validarEmail();
+
+    try {
+        validarEmail();
+        outputLabel.innerText = '';
+        formEmail.classList.remove('invalid');
+    } catch (err){
+        outputLabel.innerText = err.message
+        formEmail.classList.add('invalid');
+    }
+
     profileEmail.innerText = ev.target.value;
 });
-formEmail.addEventListener("focus", (ev) => profileEmail.innerText = ev.target.value);
 
 formPassword.addEventListener("input", (ev) => {
     const outputLabel = formPassword.parentElement.children[1]
-    outputLabel.innerText = validarSenha();
-    
-    if (formPassword.value !== formPassword2.value){
-        formPassword.parentElement.children[3].innerText = 'Senhas não são iguais'
-    }
-})
 
+    try {
+        validarSenha();
+        outputLabel.innerText = "";
+        formPassword.classList.remove('invalid');
+    }
+    catch (err) {
+        outputLabel.innerText = err.message;
+        formPassword.classList.add('invalid');
+    }
+
+})
 formPassword2.addEventListener("input", (ev) => {
-    if (formPassword.value !== formPassword2.value){
-        formPassword.parentElement.children[3].innerText = 'Senhas não são iguais'
-    } else {
-        formPassword.parentElement.children[3].innerText = ''
+    const outputLabel = formPassword2.parentElement.children[3];
+
+    try {
+        compararSenhas();
+        outputLabel.innerText = ''
+        formPassword2.classList.remove('invalid');
+    } catch (err){
+
+        outputLabel.innerText = err.message;
+        formPassword2.classList.add('invalid');
     }
 })
 
-formState.addEventListener("input", (ev) => profileState.innerText = `${ev.target.value} - Brazil`);
-formState.addEventListener("focus", (ev) => profileState.innerText = `${ev.target.value} - Brazil`);
-
+formState.addEventListener("input", (ev) => {
+    const outputLabel = formState.parentElement.children[1];
+    try {
+        validarEstado();
+        outputLabel.innerText = '';
+        formState.classList.remove('invalid');
+    } catch (err){
+        outputLabel.innerText = err.message;
+        formState.classList.add('invalid');
+    }
+    profileState.innerText = `${ev.target.value} - Brazil`
+});
 formDescription.addEventListener("input", (ev) => profileDescription.innerText = ev.target.value);
-formDescription.addEventListener("focus", (ev) => profileDescription.innerText = ev.target.value)
 
 formIMG.addEventListener("input", (ev) => {
 
@@ -57,22 +92,29 @@ formShapes.forEach((el) => {
     })
 })
 
-submitBtn.addEventListener("click", (ev) => {
-    ev.preventDefault();
-    confirmFormModal.showModal();
-})
-
 cancelarFormBtn.addEventListener("click", (ev) => {
     ev.preventDefault();
     confirmFormModal.close();
 })
 
+
 confimarFormBtn.addEventListener("click", (ev) => {
+    ev.preventDefault();
     if (validarForm()){
-        successModal.showModal();
         confirmFormModal.close();
+        confirmFormModal.value = true;
     } else {
-        failModal.showModal();
         confirmFormModal.close();
+        confirmFormModal.value = false;
     }
+})
+
+confirmFormModal.addEventListener('close', (ev) => {
+    
+    if (confirmFormModal.value) {
+        successModal.showModal()
+        const submitEvent = new SubmitEvent("submit", {submitter: this})
+        form.dispatchEvent(submitEvent)
+
+    };
 })
