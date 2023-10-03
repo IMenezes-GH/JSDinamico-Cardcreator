@@ -1,31 +1,35 @@
 function validarNome(){
-    if (formName.value === undefined) return 'Digite um nome válido.';
-    if (formName.value.trim().length < 1) return 'Digite um nome válido.';
-    if (formName.value.trim().length > 50) return 'Nome muito longo.';
-    else return '';
+    if (formName.value === undefined) throw new Error('Digite um nome válido.');
+    if (formName.value.trim().length < 1) throw new Error('Digite um nome válido.');
+    if (formName.value.trim().length > 50) throw new Error('Nome muito longo.');
+    else return true;
 }
 
 function validarSenha(){
     const passwordRegexp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$$/
-    if (!formPassword.value.match(passwordRegexp)) return 'Senha inválida'
-    else return ''
+    if (!formPassword.value.match(passwordRegexp)) throw new Error('Senha inválida')
+    else return true
 }
 
 function validarEmail(){
     const emailRegexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
-    if (formEmail.value === undefined) return 'Digite um email válido';
-    if (formEmail.value.trim().length <= 1) return 'Digite um email válido';
-    if (!formEmail.value.match(emailRegexp)) return 'Email inválido';
-    else return '';
+    if (formEmail.value === undefined) throw new Error('Digite um email válido');
+    if (formEmail.value.trim().length <= 1) throw new Error('Digite um email válido');
+    if (!formEmail.value.match(emailRegexp)) throw new Error('Email inválido');
+    else return true;
 }
 
 function validarForm(){
-    
-    if (validarNome() !== '') return false;
-    if (validarEmail() !== '') return false;
-    if (validarSenha() !== '') return false;
 
-    return true;
-  
+    try {
+        validarNome();
+        validarEmail();
+        validarSenha();
+        return true;
+    }
+    catch (err){
+        // alert(err.message);
+        return false;
+    }
 }

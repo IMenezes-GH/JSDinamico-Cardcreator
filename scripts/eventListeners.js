@@ -3,14 +3,12 @@ formName.addEventListener("input", (ev) => {
     outputLabel.innerText = validarNome();
     profileName.innerText = ev.target.value
 });
-formName.addEventListener("focus", (ev) => profileName.innerText = ev.target.value);
 
 formEmail.addEventListener("input", (ev) => {
     const outputLabel = formEmail.parentElement.children[1]
     outputLabel.innerText = validarEmail();
     profileEmail.innerText = ev.target.value;
 });
-formEmail.addEventListener("focus", (ev) => profileEmail.innerText = ev.target.value);
 
 formPassword.addEventListener("input", (ev) => {
     const outputLabel = formPassword.parentElement.children[1]
@@ -30,10 +28,7 @@ formPassword2.addEventListener("input", (ev) => {
 })
 
 formState.addEventListener("input", (ev) => profileState.innerText = `${ev.target.value} - Brazil`);
-formState.addEventListener("focus", (ev) => profileState.innerText = `${ev.target.value} - Brazil`);
-
 formDescription.addEventListener("input", (ev) => profileDescription.innerText = ev.target.value);
-formDescription.addEventListener("focus", (ev) => profileDescription.innerText = ev.target.value)
 
 formIMG.addEventListener("input", (ev) => {
 
@@ -58,8 +53,11 @@ formShapes.forEach((el) => {
 })
 
 submitBtn.addEventListener("click", (ev) => {
-    ev.preventDefault();
-    confirmFormModal.showModal();
+    // Needed so the browser's default form validation is not prevented, but still don't submit form
+    if (validarForm()) {
+        ev.preventDefault();
+        confirmFormModal.showModal();
+    }
 })
 
 cancelarFormBtn.addEventListener("click", (ev) => {

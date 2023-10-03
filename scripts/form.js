@@ -27,7 +27,7 @@ const formShapes = document.getElementsByName("shape");
 const submitBtn = document.getElementById("submit-btn");
 
 // MODAL
-const confirmFormModal = document.getElementById("confirm-form");
+const confirmFormModal = document.getElementById("confirm-form-modal");
 const successModal = document.getElementById("success-modal");
 const failModal = document.getElementById("fail-modal");
 
