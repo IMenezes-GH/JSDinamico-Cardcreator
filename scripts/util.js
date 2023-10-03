@@ -34,7 +34,6 @@ function validarEmail(){
 
 function validarEstado(){
     if (formState.value === '') {
-        formState.focus();
         throw new Error('Escolha um estado.')
     }
     return true;
