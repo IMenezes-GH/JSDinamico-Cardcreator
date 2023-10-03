@@ -1,6 +1,15 @@
 formName.addEventListener("input", (ev) => {
     const outputLabel = formName.parentElement.children[1]
-    outputLabel.innerText = validarNome();
+    try {
+        validarNome();
+        formName.classList.remove('invalid');
+        outputLabel.innerText = '';
+    }
+    catch (err){
+        outputLabel.innerText = err.message;
+        formName.classList.add('invalid');
+    }
+
     profileName.innerText = ev.target.value
 });
 

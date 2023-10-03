@@ -1,7 +1,10 @@
 function validarNome(){
-    if (formName.value === undefined) throw new Error('Digite um nome válido.');
-    if (formName.value.trim().length < 1) throw new Error('Digite um nome válido.');
-    if (formName.value.trim().length > 50) throw new Error('Nome muito longo.');
+    const nameRegexp = /[A-Za-z]/
+    const nome = formName.value;
+
+    if (nome === undefined) throw new Error('Digite um nome válido.');
+    if (nome.trim().length < 1 || !nome.match(nameRegexp)) throw new Error('Digite um nome válido.');
+    if (nome.trim().length > 50) throw new Error('Nome muito longo.');
     else return true;
 }
 
