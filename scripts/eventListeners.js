@@ -85,6 +85,7 @@ submitBtn.addEventListener("click", (ev) => {
     // Needed so the browser's default form validation is not prevented, but still don't submit form
     if (validarForm()) {
         ev.preventDefault();
+        confirmFormModal.classList.remove('hide-modal');
         confirmFormModal.showModal();
     }
 })

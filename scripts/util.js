@@ -11,7 +11,7 @@ function validarNome(){
 function validarSenha(){
     const passwordRegexp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$$/
     const password = formPassword.value;
-    if (!password.match(passwordRegexp)) throw new Error('Senha inválida')
+    if (!password.match(passwordRegexp)) throw new Error('Senha inválida. (min: 8, max:20, letras maiúsculas, minúsculas e números)')
     else return true
 }
 
@@ -42,7 +42,6 @@ function validarForm(){
         return true;
     }
     catch (err){
-        // alert(err.message);
         return false;
     }
 }
